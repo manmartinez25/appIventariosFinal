@@ -4,9 +4,21 @@ use App\Http\Controllers\FechaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IngrController;
 use App\Http\Controllers\InventarioController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\VentasController;
+
+
+//Login
+Route::view('/login', "login")->name('login');
+Route::view('/registro', "register")->name('registro');
+Route::view('/privada', "secret")->middleware('auth')->name('privada');
+
+Route::post('/validar-registro',[LoginController::class,'register'])->name('validar-registro');
+Route::post('/inicia-sesion',[LoginController::class,'login'])->name('inicia-sesion');
+Route::post('/logout',[LoginController::class,'logout'])->name('logout');
+
 
 Route::get('/home', [HomeController::class,"home"])->name("home.home");
 
