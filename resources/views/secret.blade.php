@@ -15,7 +15,6 @@
             <a href="" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
                 Página Privada @auth de {{Auth::user()->name}} @endauth
                     
-                @endauth
             </a>
             <div class="col-md-3 text-end">
                 <form action="{{route('logout')}}" method="POST">

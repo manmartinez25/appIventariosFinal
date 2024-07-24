@@ -20,7 +20,7 @@ Route::post('/inicia-sesion',[LoginController::class,'login'])->name('inicia-ses
 Route::post('/logout',[LoginController::class,'logout'])->name('logout');
 
 
-Route::get('/home', [HomeController::class,"home"])->name("home.home");
+Route::get('/home', [HomeController::class,"home"])/*->middleware('auth')*/->name("home.home");
 
 //Rutas interfaz productos
 Route::get('/products', [ProductController::class,"gestProducts"])->name("product.gestProducts");

@@ -32,7 +32,7 @@
 </header>
 <body>
     <img class="wave" src="img/wave.png" alt="imagenFondo">
-    <h1 class="text-center p-3">Gestión de inventario</h1>
+    <h1 class="text-center p-3">Historial de ventas</h1>
 
         <!-- Modal registro de ingresos-->
         <div class="modal fade" id="modalFiltroFecha" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -68,7 +68,17 @@
   
 
     <div class="p-5 table-responsive">
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+          Tipo de visualización
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <li><a class="dropdown-item" href="{{route('inventario.gestInventario')}}">Productos</a></li>
+          <li><a class="dropdown-item" href="{{route('inventarioIng.gestInvIngreso')}}">Historial Ingresos</a></li>
+          <li><a class="dropdown-item" href="{{route('inventarioIng.gestInvClientes')}}">Clientes</a></li>
+        </ul>
         <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalFiltroFecha">Añadir Filtro</button>
+      </div>
 
         <table class="table table-striped table-bordered table-hover">
             <thead class="table-dark thead-">

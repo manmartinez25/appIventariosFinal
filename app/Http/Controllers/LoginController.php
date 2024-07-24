@@ -35,7 +35,7 @@ class LoginController extends Controller
 
         if(Auth::attempt($credenciales,$remember)){
             $request->session()->regenerate();
-            return redirect(route('privada'));
+            return view('home');
         }else{
             return redirect()->intended(('login'));
         }
