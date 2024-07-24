@@ -10,6 +10,8 @@
 
 </head>
 <body>
+    <img class="wave" src="img/wave.png" alt="imagenFondo">
+
     <main class="container align-content-center p-5">
         <form action="{{route('validar-registro')}}" method="POST">
             @csrf
