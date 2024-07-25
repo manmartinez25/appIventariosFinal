@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+
 use Throwable;
 
 class ProductController extends Controller
@@ -14,6 +16,8 @@ class ProductController extends Controller
     }
 
     public function createProd(Request $request){
+        Log::info('updateVenta request parameters', $request->all());
+
         try{
             $sql= DB::insert("INSERT INTO producto(nombre_prod,tipo_prod,descripcion,precio,stock,marca) VALUES(?,?,?,?,?,?)",[
                 $request->txtnombreProducto,
@@ -23,13 +27,16 @@ class ProductController extends Controller
                 $request->txtstockProd,
                 $request->txtmarcaProd
             ]);
-        }catch (\Throwable $th){
+                if($sql==0){
+                $sql=1;
+            }
+        }catch(\Throwable $th){
             $sql= 0;
-        }
-        if($sql== true){
-            return back()->with("correcto","Producto registrado correctamente");
+        }      
+        if($sql == 1){
+            return back()->with("correcto","Ingreso registrado correctamnente");
         }else{
-            return back()->with("incorrecto","Error al registrar");
+            return back()->with("incorrecto","Registro incorrecto");
         }
     }
 

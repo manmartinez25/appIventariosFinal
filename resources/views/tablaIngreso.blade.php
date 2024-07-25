@@ -20,12 +20,17 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href={{ route('home.home')}}>Home</a>
-                <a class="nav-link" href="#">Productos</a>
-                <a class="nav-link" href="#">Ingresos</a>
-                <a class="nav-link" href="#">Ventas</a>
-                <a class="nav-link" href="#">Inventarios</a>
-                <a class="nav-link" href="#">Cerrar Sesión</a>
+                <a class="nav-link active" aria-current="page" href="{{ route('home.home') }}">Home</a>
+                <a class="nav-link" href="{{ route('product.gestProducts') }}">Productos</a>
+                <a class="nav-link" href="{{ route('ingresos.ingresoProducts') }}">Ingresos</a>
+                <a class="nav-link" href="{{ route('ventas.gestVentas') }}">Ventas</a>
+                <a class="nav-link" href="{{ route('inventario.gestInventario') }}">Inventarios</a>
+              </div>
+              <div class="d-flex ms-auto">
+                <form action="{{ route('logout') }}" method="POST">
+                  @csrf
+                  <button type="submit" class="btn btn-outline-primary me-2">Salir</button>
+                </form>
               </div>
             </div>
           </div>

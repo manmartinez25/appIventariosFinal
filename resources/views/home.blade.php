@@ -19,10 +19,10 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav me-auto">
                 <a class="nav-link active" aria-current="page" href="{{ route('home.home') }}">Home</a>
-                <a class="nav-link" href="#">Productos</a>
-                <a class="nav-link" href="#">Ingresos</a>
-                <a class="nav-link" href="#">Ventas</a>
-                <a class="nav-link" href="#">Inventarios</a>
+                <a class="nav-link" href="{{ route('product.gestProducts') }}">Productos</a>
+                <a class="nav-link" href="{{ route('ingresos.ingresoProducts') }}">Ingresos</a>
+                <a class="nav-link" href="{{ route('ventas.gestVentas') }}">Ventas</a>
+                <a class="nav-link" href="{{ route('inventario.gestInventario') }}">Inventarios</a>
               </div>
               <div class="d-flex ms-auto">
                 <form action="{{ route('logout') }}" method="POST">
@@ -57,7 +57,7 @@
                 </div>
               </div>
               <div class="card" style="width: 18rem;">
-                <img src="img/credit.svg" class="card-img-top" alt="imgVentas" style="height: 180px; object-fit: cover;">
+                <img src="img/credit.svg" class="card-img-top" alt="imgVentas" style="max-height: 180px; object-fit: cover;">
                 <div class="card-body text-center">
                   <h5 class="card-title">Ventas</h5>
                   <p class="card-text">Gestiona procesos de ventas</p>

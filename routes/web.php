@@ -13,17 +13,16 @@ use App\Http\Controllers\VentasController;
 //Login
 Route::view('/login', "login")->name('login');
 Route::view('/registro', "register")->name('registro');
-Route::view('/privada', "secret")->middleware('auth')->name('privada');
 
 Route::post('/validar-registro',[LoginController::class,'register'])->name('validar-registro');
 Route::post('/inicia-sesion',[LoginController::class,'login'])->name('inicia-sesion');
 Route::post('/logout',[LoginController::class,'logout'])->name('logout');
 
 
-Route::get('/home', [HomeController::class,"home"])/*->middleware('auth')*/->name("home.home");
+Route::get('/home', [HomeController::class,"home"])->middleware('auth')->name("home.home");
 
 //Rutas interfaz productos
-Route::get('/products', [ProductController::class,"gestProducts"])->name("product.gestProducts");
+Route::get('/products', [ProductController::class,"gestProducts"])->middleware('auth')->name("product.gestProducts");
 //Ruta añadir nuevo producto
 Route::post('/registrar-producto', [ProductController::class,"createProd"])->name("product.createProd");
 //Ruta modificar producto
@@ -33,7 +32,7 @@ Route::get('/eliminar-producto-{id}', [ProductController::class,"deleteProd"])->
 
 
 //Rutas interfaz ingreso de productos
-Route::get('/ingresos', [IngrController::class,"ingresoProducts"])->name("ingresos.ingresoProducts");
+Route::get('/ingresos', [IngrController::class,"ingresoProducts"])->middleware('auth')->name("ingresos.ingresoProducts");
 //Ruta añadir nuevo ingreso
 Route::post('/registrar-ingreso', [IngrController::class,"createIngr"])->name("ingresos.createIngr");
 //Ruta modificar ingreso
@@ -41,7 +40,7 @@ Route::post('/modificar-ingreso', [IngrController::class,"updateIngr"])->name("i
 
 
 //Rutas interfaz ventas
-Route::get('/ventas', [VentasController::class,"gestVentas"])->name("ventas.gestVentas");
+Route::get('/ventas', [VentasController::class,"gestVentas"])->middleware('auth')->name("ventas.gestVentas");
 //Ruta añadir nueva venta
 Route::post('/registrar-venta', [VentasController::class,"createVenta"])->name("ventas.createVenta");
 //Ruta modificar venta
@@ -51,13 +50,13 @@ Route::post('/cliente-venta', [VentasController::class,"añadirCliente"])->name(
 
 
 //Rutas interfaz inventario
-Route::get('/inventario', [InventarioController::class,"gestInventario"])->name("inventario.gestInventario");
+Route::get('/inventario', [InventarioController::class,"gestInventario"])->middleware('auth')->name("inventario.gestInventario");
 //Ruta interfaz tabla ingresos
-Route::get('/tablaIngreso', [InventarioController::class,"gestInvIngreso"])->name("inventarioIng.gestInvIngreso");
+Route::get('/tablaIngreso', [InventarioController::class,"gestInvIngreso"])->middleware('auth')->name("inventarioIng.gestInvIngreso");
 //Ruta interfaz tabla ventas
-Route::get('/tablaVenta', [InventarioController::class,"gestInvVenta"])->name("inventarioIng.gestInvVenta");
+Route::get('/tablaVenta', [InventarioController::class,"gestInvVenta"])->middleware('auth')->name("inventarioIng.gestInvVenta");
 //Ruta interfaz tabla clientes
-Route::get('/tablaClientes', [InventarioController::class,"gestInvClientes"])->name("inventarioIng.gestInvClientes");
+Route::get('/tablaClientes', [InventarioController::class,"gestInvClientes"])->middleware('auth')->name("inventarioIng.gestInvClientes");
 //Ruta flitro fecha ingresos
 Route::post('/filtroFecha', [InventarioController::class,"filtrarFecha"])->name("filtroFecha.filtrarFecha");
 //Ruta flitro fecha ventas
