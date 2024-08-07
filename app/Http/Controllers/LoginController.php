@@ -22,7 +22,7 @@ class LoginController extends Controller
         $user->save();
         
         Auth::login($user);
-        return redirect(route('privada'));
+        return view('home');
     }
 
     public function login(Request $request){

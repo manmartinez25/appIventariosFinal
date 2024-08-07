@@ -74,10 +74,6 @@
                     <td><b>$</b>{{$item->precio}}</td>
                     <td>{{$item->stock}}</td>
                     <td>{{$item->marca}}</td>
-                    <td>
-                      <a href="" data-bs-toggle="modal" data-bs-target="#modalEditar"><button type="button" class="btn btn-warning btn-sm">Editar</button></a>
-                      <a href="" onclick="return res()"><button type="button" class="btn btn-danger btn-sm">Borrar</button></a>
-                    </td>
                 </tr>
                 @endforeach
             </tbody>
