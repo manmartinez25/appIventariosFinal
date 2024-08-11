@@ -17,6 +17,7 @@ class IngrController extends Controller
     }
 
     public function createIngr(Request $request){
+        Log::info('Resultado solicitud crear ingreso');
         try{
             $sql = DB::insert("INSERT INTO produccion_compras(num_lote,fecha,tipo_prod,cantidad,id_Producto) VALUES (?,?,?,?,?)",[
                 $request->txtLoteIngreso,
@@ -26,6 +27,7 @@ class IngrController extends Controller
                 $request->txtIdProd
             ]);
             $this->updateCantidadProd($request);
+            Log::info('resultado inserción ingreso',['datosIngreso' => $request]);
             if($sql==0){
                 $sql=1;
             }
