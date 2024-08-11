@@ -12,7 +12,7 @@ class ProductController extends Controller
 {
     public function gestProducts(){
         $datosProduc=DB::select("SELECT * FROM producto");
-        return view("gestProduct", ["datosProduc" => $datosProduc]);
+        return view("gestProducts", ["datosProduc" => $datosProduc]);
     }
 
     public function createProd(Request $request){
