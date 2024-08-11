@@ -22,7 +22,7 @@ Route::post('/logout',[LoginController::class,'logout'])->name('logout');
 Route::get('/home', [HomeController::class,"home"])->middleware('auth')->name("home.home");
 
 //Rutas interfaz productos
-Route::get('/products', [ProductController::class,"gestProducts"])->name("product.gestProducts");
+Route::get('/products', [ProductController::class,"gestProducts"])->middleware('auth')->name("product.gestProducts");
 //Ruta añadir nuevo producto
 Route::post('/registrar-producto', [ProductController::class,"createProd"])->name("product.createProd");
 //Ruta modificar producto
