@@ -32,6 +32,11 @@ class IngrController extends Controller
                 $sql=1;
             }
         }catch(\Throwable $th){
+            Log::error('Error al crear ingreso', [
+                'mensaje' => $th->getMessage(),
+                'trace' => $th->getTraceAsString(),
+                'datosIngreso' => $request->all()
+            ]);
             $sql= 0;
         }      
         if($sql == 1){
