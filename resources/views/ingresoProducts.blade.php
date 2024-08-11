@@ -76,8 +76,8 @@
                 </div>
                 <select class="custom-select" id="inputGroupSelect01" name="txtIdProd">
                   <option selected>Id Productos</option>
-                    @foreach($datosProd as $id_Producto)
-                     <option type="number" value="{{$id_Producto->id}}" data-tipo-prod="{{$id_Producto->tipo_prod }}">{{$id_Producto->nombre_prod}}</option>
+                    @foreach($datosProd as $producto)
+                     <option type="number" value="{{$producto->id}}" data-tipo-prod="{{$producto->tipo_prod }}">{{$producto->nombre_prod}}</option>
                     @endforeach
                 </select>
               </div>
