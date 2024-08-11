@@ -140,7 +140,7 @@
             <td>{{$item->fecha}}</td>
             <td>{{$item->tipo_prod}}</td>
             <td>{{$item->cantidad}}</td>
-            <td>{{$item->id_Producto}}</td>
+            <td>{{$item->id_producto}}</td>
             <td>
               <a href="" data-bs-toggle="modal" data-bs-target="#modalEditar{{$item->id}}"><button type="button" class="btn btn-warning btn-sm">Editar</button></a>
             </td>
@@ -183,7 +183,7 @@
                         <div class="mb-3">
                           <label for="txtCantidad" class="form-label">Id Producto</label>
                             <input type="text" class="form-control" id="txtIdProduct"
-                            aria-describedby="emailHelp" name="txtIdProduct" value="{{$item->id_Producto}}" readonly>
+                            aria-describedby="emailHelp" name="txtIdProduct" value="{{$item->id_producto}}" readonly>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>

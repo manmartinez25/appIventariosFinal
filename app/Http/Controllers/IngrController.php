@@ -19,7 +19,7 @@ class IngrController extends Controller
     public function createIngr(Request $request){
         Log::info('Resultado solicitud crear ingreso');
         try{
-            $sql = DB::insert("INSERT INTO produccion_compras(num_lote,fecha,tipo_prod,cantidad,id_Producto) VALUES (?,?,?,?,?)",[
+            $sql = DB::insert("INSERT INTO produccion_compras(num_lote,fecha,tipo_prod,cantidad,id_producto) VALUES (?,?,?,?,?)",[
                 $request->txtLoteIngreso,
                 $request->txtFecha,
                 $request->txtTipoProd,
